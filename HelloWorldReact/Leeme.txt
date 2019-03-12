@@ -1,0 +1,47 @@
+﻿1. Seguir instrucciones de 
+https://www.youtube.com/watch?v=myoghjBrTbU
+
+2. Seguir Instrucciones.png de Installers/Instrucciones.png
+
+3. ReactConfig.cs:
+
+----------------------------------------------------------------------------------------------------------
+using JavaScriptEngineSwitcher.Core;
+using JavaScriptEngineSwitcher.V8;
+using React;
+
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(HelloWorldReact.ReactConfig), "Configure")]
+
+namespace HelloWorldReact
+{
+	public static class ReactConfig
+	{
+		public static void Configure()
+		{
+
+            ReactSiteConfiguration.Configuration
+                .AddScript("~/Scripts/App.js");
+
+            JsEngineSwitcher.Current.DefaultEngineName = V8JsEngine.EngineName;
+            JsEngineSwitcher.Current.EngineFactories.AddV8();
+        }
+	}
+}
+
+---------------------------------------------------------------------------------------------------------
+
+4. Global.asax.cs:
+
+
+----------------------------------------------------------------------------------------------------------
+
+      protected void Application_Start()
+        {
+            AreaRegistration.RegisterAllAreas();
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ReactConfig.Configure();
+        }
+
+---------------------------------------------------------------------------------------------------------

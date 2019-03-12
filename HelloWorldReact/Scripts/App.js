@@ -14,6 +14,22 @@ class Grid extends React.Component {
    
 }
 
+class Lista extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return(
+            <div>
+                <h3>Tareas pendientes:</h3>
+                <p>{this.props.tareas.join(", ")}</p>
+            </div>
+        );
+    }
+}
+                
 class Hello extends React.Component {
   render() {
     return (<div>
@@ -22,6 +38,9 @@ class Hello extends React.Component {
               <Grid />
               <hr />
         Hoy es {this.props.date}
+
+        
+         <Lista tareas={this.props.tareas}/> 
             </div>);
   }
 }

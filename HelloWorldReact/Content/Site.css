@@ -31,4 +31,9 @@ textarea {
     padding: 50px;
 }
 
+.grid2Columns {
+    display:grid;
+    grid-template-columns: 50% 50%;
+}
+
 /***********************************************/

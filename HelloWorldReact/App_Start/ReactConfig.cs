@@ -12,7 +12,7 @@ namespace HelloWorldReact
 		{
 
             ReactSiteConfiguration.Configuration
-                .AddScript("~/Scripts/App.js");
+                .AddScript("~/Scripts/ReactComponents/Index.jsx");
 
             JsEngineSwitcher.Current.DefaultEngineName = V8JsEngine.EngineName;
             JsEngineSwitcher.Current.EngineFactories.AddV8();

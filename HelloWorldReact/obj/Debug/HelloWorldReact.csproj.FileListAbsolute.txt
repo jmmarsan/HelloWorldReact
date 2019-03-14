@@ -1,4 +1,3 @@
-C:\Users\jmsanchez\source\repos\HelloWorldReact\HelloWorldReact\obj\Debug\HelloWorldReact.csprojAssemblyReference.cache
 C:\Users\jmsanchez\source\repos\HelloWorldReact\HelloWorldReact\obj\Debug\HelloWorldReact.csproj.CoreCompileInputs.cache
 C:\Users\jmsanchez\source\repos\HelloWorldReact\HelloWorldReact\bin\HelloWorldReact.dll.config
 C:\Users\jmsanchez\source\repos\HelloWorldReact\HelloWorldReact\bin\HelloWorldReact.dll
@@ -109,3 +108,4 @@ C:\Users\jmsanchez\source\repos\HelloWorldReact\HelloWorldReact\bin\ru-ru\JavaSc
 C:\Users\jmsanchez\source\repos\HelloWorldReact\HelloWorldReact\bin\x86\ClearScriptV8-32.dll
 C:\Users\jmsanchez\source\repos\HelloWorldReact\HelloWorldReact\bin\x86\v8-base-ia32.dll
 C:\Users\jmsanchez\source\repos\HelloWorldReact\HelloWorldReact\bin\x86\v8-ia32.dll
+C:\Users\jmsanchez\source\repos\HelloWorldReact\HelloWorldReact\obj\Debug\HelloWorldReact.csprojAssemblyReference.cache

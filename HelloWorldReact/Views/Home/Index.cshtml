@@ -3,13 +3,15 @@
     ViewBag.Title = "Index";
 }
 
+<script src="@Url.Content("~/Scripts/ReactComponents/Index.jsx")"></script>
 
 <!-- React component -->
 @Html.React("Hello",new
-{
-    name ="Jose",
-    date = DateTime.Now.ToShortDateString(),
-    tareas = new List<string>() { "Sacar al perro","Hacer la compra", "Arreglar televisor"}
-   
-})
+    {
+        name ="Jose",
+        date = DateTime.Now.ToShortDateString(),
+        tareas = new List<string>() { "Sacar al perro","Hacer la compra", "Arreglar televisor"}
 
+    })
+
+@Html.ReactInitJavaScript()

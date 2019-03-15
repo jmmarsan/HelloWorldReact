@@ -27,6 +27,11 @@ namespace HelloWorldReact.Controllers
             return View();
         }
 
+        public ActionResult Form()
+        {
+            return View();
+        }
+
         public JsonResult getmessage()
         {
             return new JsonResult

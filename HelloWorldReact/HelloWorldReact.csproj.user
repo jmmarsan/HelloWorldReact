@@ -9,6 +9,14 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <_SelectedScaffolderID>MvcViewScaffolder</_SelectedScaffolderID>
+    <_SelectedScaffolderCategoryPath>root/Common/MVC/View</_SelectedScaffolderCategoryPath>
+    <WebStackScaffolding_ControllerDialogWidth>600,242424242424</WebStackScaffolding_ControllerDialogWidth>
+    <WebStackScaffolding_ViewDialogWidth>600,242424242424</WebStackScaffolding_ViewDialogWidth>
+    <WebStackScaffolding_LayoutPageFile>~/Views/Shared/_Layout.cshtml</WebStackScaffolding_LayoutPageFile>
+    <WebStackScaffolding_IsLayoutPageSelected>True</WebStackScaffolding_IsLayoutPageSelected>
+    <WebStackScaffolding_IsPartialViewSelected>False</WebStackScaffolding_IsPartialViewSelected>
+    <WebStackScaffolding_IsReferencingScriptLibrariesSelected>True</WebStackScaffolding_IsReferencingScriptLibrariesSelected>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

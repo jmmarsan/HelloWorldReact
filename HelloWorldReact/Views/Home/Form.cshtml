@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Ejemplo formulario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<script src="@Url.Content("~/Scripts/ReactComponents/Form.jsx")"></script>
+
+<!-- React component -->
+@Html.React("MyForm",new { })
+
+@Html.ReactInitJavaScript()

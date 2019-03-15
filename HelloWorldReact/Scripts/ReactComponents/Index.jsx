@@ -4,7 +4,6 @@ class Description extends React.Component {
     }
 }
 
-
 class ContadorClicks extends React.Component {
     constructor(props) {
         super(props);
@@ -50,6 +49,29 @@ class ContadorClicks extends React.Component {
     }
 }
 
+class ControlledInput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            input: ''
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleChange(event) {
+        this.setState({ input: event.target.value });
+    }
+
+    render() {
+        return (
+            <div>
+                <input value={this.state.input} onChange={this.handleChange} />
+                <h4>Input:</h4>
+                <p>{this.state.input}</p>
+            </div>
+        );
+    }
+};
+
 class Grid extends React.Component {
     render() {
         return (<div className="grid2Columns">
@@ -89,7 +111,6 @@ class Lista extends React.Component {
     }
 }
 
-
 class Hello extends React.Component {
     static defaultProps = {
         tareasHechas: ['Sin tareas...']
@@ -109,10 +130,10 @@ class Hello extends React.Component {
             <Grid />
             <hr />
             Hoy es {this.props.date}
-
-
             <Lista id="tareasPendientes" titulo="Tareas pendientes:" tareas={this.props.tareas} />
             <Lista id="tareasHechos" titulo="Tareas hechas:" tareas={this.props.tareasHechas} />
+            <hr />
+            <ControlledInput />
         </div>
         );
     }

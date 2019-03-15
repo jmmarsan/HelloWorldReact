@@ -37,7 +37,6 @@ class ContadorClicks extends React.Component {
     }
 
     render() {
-        console.log('ejemplo log');
         return (
             <div>
                 <button className='clickable' onClick={this.increment}>Incrementar!</button>
@@ -122,6 +121,16 @@ class Hello extends React.Component {
         tareas: PropTypes.arrayOf(PropTypes.string),
         tareasHechas: PropTypes.arrayOf(PropTypes.string)
     };
+
+    componentWillMount() {
+        console.log("Hello (componentWillMount) -> Componente siendo montado en el DOM");
+    }
+
+    componentDidMount() {
+        console.log("Hello (componentDidMount) -> Componente ya montado en el DOM. Habitualmente utilizado para ubicar llamadas a servidor, apis, etc");
+    }
+
+
 
     render() {
         return (<div>

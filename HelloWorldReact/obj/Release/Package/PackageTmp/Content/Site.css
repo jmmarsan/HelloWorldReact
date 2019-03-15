@@ -1,0 +1,53 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+/************************************************/
+
+.myDiv {
+    background-color: lightgray;
+    padding: 50px;
+}
+
+.grid2Columns {
+    display:grid;
+    grid-template-columns: 50% 50%;
+}
+
+.clickable {
+    display: inline;
+    cursor: pointer;
+}
+
+.contacto {
+    max-height: 45px;
+    max-width: 45px;
+}
+
+.blockcontacto {
+    margin-left: 3%;
+    margin-top: 10px;
+}
+/***********************************************/

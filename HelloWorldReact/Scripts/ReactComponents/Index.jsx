@@ -48,21 +48,40 @@ class ContadorClicks extends React.Component {
     }
 }
 
+
 class ControlledInput extends React.Component {
+
+
     constructor(props) {
         super(props);
         this.state = {
             input: ''
         };
         this.handleChange = this.handleChange.bind(this);
+        this.teclapulsada = this.teclapulsada.bind(this);
     }
     handleChange(event) {
         this.setState({ input: event.target.value });
     }
 
+    teclapulsada(event) {
+        console.log("tecla pulsada");
+    }
+
+    componentWillMount() {
+        console.log("ControlledInput (componentWillMount) ");
+
+        //window.addEventListener("onkeypress", this.teclapulsada, false);
+    }
+
+    componentDidMount() {
+        console.log("ControlledInput (componentDidMount) ");
+        //window.addEventListener("onkeypress", this.teclapulsada);
+    }
+
     render() {
         return (
-            <div>
+            <div >
                 <input value={this.state.input} onChange={this.handleChange} />
                 <h4>Input:</h4>
                 <p>{this.state.input}</p>

@@ -41,5 +41,13 @@ textarea {
     cursor: pointer;
 }
 
+.contacto {
+    max-height: 45px;
+    max-width: 45px;
+}
 
+.blockcontacto {
+    margin-left: 3%;
+    margin-top: 10px;
+}
 /***********************************************/

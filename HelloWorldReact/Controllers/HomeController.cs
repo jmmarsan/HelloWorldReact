@@ -15,14 +15,14 @@ namespace HelloWorldReact.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Web para probar MVC .Net con React";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Puedes encontrarme en";
 
             return View();
         }

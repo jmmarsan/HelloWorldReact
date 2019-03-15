@@ -9,23 +9,44 @@ class ContadorClicks extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            numClicks: 0
+            count: 0
         };
-        this.handleClick = this.handleClick.bind(this);
+        this.increment = this.increment.bind(this);
+        this.decrement = this.decrement.bind(this);
+        this.reset = this.reset.bind(this);
     }
 
-    handleClick() {
+    increment() {
  
         this.setState({
-            numClicks: this.state.numClicks + 1
+            count: this.state.count + 1
+        });
+    }
+
+    decrement() {
+
+        this.setState({
+            count: this.state.count - 1
+        });
+    }
+
+    reset() {
+
+        this.setState({
+            count: 0
         });
     }
 
     render() {
-        console.log('pintado');
-        return (<div className="clickable" onClick={this.handleClick} >
-            N&uacute;mero de clicks: {this.state.numClicks}
-        </div>);
+        console.log('ejemplo log');
+        return (
+            <div>
+                <button className='clickable' onClick={this.increment}>Incrementar!</button>
+                <button className='clickable' onClick={this.decrement}>Decrementar!</button>
+                <button className='clickable' onClick={this.reset}>Reset</button>
+                    <div>N&uacute;mero de clicks: {this.state.count}</div>
+            </div>
+        );
     }
 }
 

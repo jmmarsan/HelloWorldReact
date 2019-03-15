@@ -23,7 +23,7 @@ class ContadorClicks extends React.Component {
 
     render() {
         console.log('pintado');
-        return (<div onClick={this.handleClick}>
+        return (<div className="clickable" onClick={this.handleClick} >
             N&uacute;mero de clicks: {this.state.numClicks}
         </div>);
     }
@@ -43,15 +43,28 @@ class Lista extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            visibility: false
+        };
+        this.changeVisibility = this.changeVisibility.bind(this);
+    }
+
+    changeVisibility() {
+            this.setState({ visibility: !this.state.visibility });
     }
 
     render() {
-        return (
-            <div>
-                <h3>{this.props.titulo}</h3>
-                <ul>{this.props.tareas.map((t) => (<li>{t}</li>))}</ul>
-            </div>
-        );
+                if(this.state.visibility == true) {
+                    return (<div>
+                        <h3><div onClick={this.changeVisibility} className="clickable" >-</div> {this.props.titulo}</h3>
+                        <ul>{this.props.tareas.map((t,i) => (<li key={i}>{t}</li>))}</ul>
+                    </div>);
+                }
+                else {
+                    return (<div>
+                        <h3><div onClick={this.changeVisibility} className="clickable" >+</div> {this.props.titulo}</h3>
+                    </div>);
+                }
     }
 }
 

@@ -16,7 +16,7 @@
 
     render() {
         return (
-            <div onClick={this.handleClick}> {this.state.numClicks}</div>
+            <div> Contador clicks footer <div className="clickable" onClick={this.handleClick}> {this.state.numClicks}</div></div>
         );
     }
 }

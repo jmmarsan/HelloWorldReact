@@ -36,4 +36,10 @@ textarea {
     grid-template-columns: 50% 50%;
 }
 
+.clickable {
+    display: inline;
+    cursor: pointer;
+}
+
+
 /***********************************************/

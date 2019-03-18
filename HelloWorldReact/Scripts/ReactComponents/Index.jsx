@@ -37,11 +37,14 @@ class ContadorClicks extends React.Component {
     }
 
     render() {
+        const styles = {
+            margin: 2
+        }
         return (
             <div>
-                <button className='clickable' onClick={this.increment}>Incrementar!</button>
-                <button className='clickable' onClick={this.decrement}>Decrementar!</button>
-                <button className='clickable' onClick={this.reset}>Reset</button>
+                <button className='clickable' style={styles} onClick={this.increment}>Incrementar!</button>
+                <button className='clickable' style={styles}  onClick={this.decrement}>Decrementar!</button>
+                <button className='clickable' style={styles}  onClick={this.reset}>Reset</button>
                 <div>N&uacute;mero de clicks: {this.state.count}</div>
             </div>
         );

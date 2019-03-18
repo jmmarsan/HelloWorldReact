@@ -16,7 +16,7 @@ class ContadorClicks extends React.Component {
     }
 
     increment() {
- 
+
         this.setState({
             count: this.state.count + 1
         });
@@ -42,53 +42,93 @@ class ContadorClicks extends React.Component {
                 <button className='clickable' onClick={this.increment}>Incrementar!</button>
                 <button className='clickable' onClick={this.decrement}>Decrementar!</button>
                 <button className='clickable' onClick={this.reset}>Reset</button>
-                    <div>N&uacute;mero de clicks: {this.state.count}</div>
+                <div>N&uacute;mero de clicks: {this.state.count}</div>
             </div>
         );
     }
 }
 
-
-class ControlledInput extends React.Component {
-
-
+class ControlledInputVisor extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            input: ''
-        };
-        this.handleChange = this.handleChange.bind(this);
-        this.teclapulsada = this.teclapulsada.bind(this);
-    }
-    handleChange(event) {
-        this.setState({ input: event.target.value });
     }
 
-    teclapulsada(event) {
-        console.log("tecla pulsada");
-    }
+    //Component Lifecycle logs (Ver Tutorial/lifecycle.pdf para más info)
 
     componentWillMount() {
-        console.log("ControlledInput (componentWillMount) ");
-
-        //window.addEventListener("onkeypress", this.teclapulsada, false);
+        console.log("ControlledInputVisor (componentWillMount) -> Componente siendo montado en el DOM");
     }
 
     componentDidMount() {
-        console.log("ControlledInput (componentDidMount) ");
-        //window.addEventListener("onkeypress", this.teclapulsada);
+        console.log("ControlledInputVisor (componentDidMount) -> Componente ya montado en el DOM. Habitualmente utilizado para ubicar llamadas a servidor, apis, disponer eventhandlers (document.addEventListener()) etc");
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log("ControlledInputVisor (componentWillReceiveProps) -> Props del componente actualizadas por cambio desde componente padre");
+        console.log(this.props);
+        console.log(nextProps);
+    }
+    
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("ControlledInputVisor (shouldComponentUpdate) -> Permite cancelar renderizado del componente bajo ciertas condiciones");
+        return true;
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        console.log("ControlledInputVisor (componentWillUpdate) -> Componente necesita repintarse. Similar a componentWillMount pero sin permitir setState");
+    }
+
+    componentDidUpdate() {
+        console.log("ControlledInputVisor (componentDidUpdate) -> Componente repintado tras cambio en props o en state");
+    }
+
+    componentWillUnmount() {
+        console.log("ControlledInputVisor (componentWillUnmount) -> Componente desmontado y destruido. Habitualmentes utilizado para quitar eventhandlers (document.removeEventListener())");
     }
 
     render() {
+        return (<div>
+            <h4>Input:</h4>
+            <p>{this.props.texto}</p>
+        </div>);
+    }
+}
+
+class ControlledInput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            input: '',
+            showVisor: true
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleChangeVisibility = this.handleChangeVisibility.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({ input: event.target.value, showVisor: this.state.showVisor });
+    }
+
+    handleChangeVisibility(event) {
+        this.setState({ input: this.state.input, showVisor: !this.state.showVisor })
+    }
+
+    render() {
+
+        const visor = this.state.showVisor ? <ControlledInputVisor texto={this.state.input} /> : null;
         return (
-            <div >
+            <div>
+                <label>&iquest;Mostrar visor&#63;</label>
+                <input type="checkbox" checked={this.state.showVisor} onChange={this.handleChangeVisibility} />
+                <br />
                 <input value={this.state.input} onChange={this.handleChange} />
-                <h4>Input:</h4>
-                <p>{this.state.input}</p>
+                {visor}
             </div>
         );
     }
 };
+
+
 
 class Grid extends React.Component {
     render() {
@@ -111,21 +151,21 @@ class Lista extends React.Component {
     }
 
     changeVisibility() {
-            this.setState({ visibility: !this.state.visibility });
+        this.setState({ visibility: !this.state.visibility });
     }
 
     render() {
-                if(this.state.visibility == true) {
-                    return (<div>
-                        <h3><div onClick={this.changeVisibility} className="clickable" >-</div> {this.props.titulo}</h3>
-                        <ul>{this.props.tareas.map((t,i) => (<li key={i}>{t}</li>))}</ul>
-                    </div>);
-                }
-                else {
-                    return (<div>
-                        <h3><div onClick={this.changeVisibility} className="clickable" >+</div> {this.props.titulo}</h3>
-                    </div>);
-                }
+        if (this.state.visibility == true) {
+            return (<div>
+                <h3><div onClick={this.changeVisibility} className="clickable" >-</div> {this.props.titulo}</h3>
+                <ul>{this.props.tareas.map((t, i) => (<li key={i}>{t}</li>))}</ul>
+            </div>);
+        }
+        else {
+            return (<div>
+                <h3><div onClick={this.changeVisibility} className="clickable" >+</div> {this.props.titulo}</h3>
+            </div>);
+        }
     }
 }
 
@@ -141,14 +181,13 @@ class Hello extends React.Component {
         tareasHechas: PropTypes.arrayOf(PropTypes.string)
     };
 
-    componentWillMount() {
-        console.log("Hello (componentWillMount) -> Componente siendo montado en el DOM");
-    }
+    //componentWillMount() {
+    //    console.log("Hello (componentWillMount) -> Componente siendo montado en el DOM");
+    //}
 
-    componentDidMount() {
-        console.log("Hello (componentDidMount) -> Componente ya montado en el DOM. Habitualmente utilizado para ubicar llamadas a servidor, apis, etc");
-    }
-
+    //componentDidMount() {
+    //    console.log("Hello (componentDidMount) -> Componente ya montado en el DOM. Habitualmente utilizado para ubicar llamadas a servidor, apis, etc");
+    //}
 
 
     render() {

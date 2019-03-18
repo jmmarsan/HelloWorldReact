@@ -14,6 +14,10 @@
         });
     }
 
+
+
+
+
     render() {
         return (
             <div> Contador clicks footer <div className="clickable" onClick={this.handleClick}> {this.state.numClicks}</div></div>

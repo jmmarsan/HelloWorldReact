@@ -172,6 +172,51 @@ class Lista extends React.Component {
     }
 }
 
+
+class CreadorListas extends React.Component {
+    constructor(props) {
+        super(props);
+        // change code below this line
+        this.state = {
+            userInput: "",
+            toDoList: []
+        }
+        // change code above this line
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+    handleSubmit() {
+        const itemsArray = this.state.userInput.split(',');
+        this.setState({
+            toDoList: itemsArray
+        });
+    }
+    handleChange(e) {
+        this.setState({
+            userInput: e.target.value
+        });
+    }
+    render() {
+        const textAreaStyles = {
+            width: 235,
+            margin: 5
+        };
+        return (
+            <div>
+                <textarea
+                    onChange={this.handleChange}
+                    value={this.state.userInput}
+                    style={textAreaStyles}
+                    placeholder="Separa los elementos con comas" /><br />
+                <button onClick={this.handleSubmit}>Crear Lista</button>
+                <Lista id="listaCreada" titulo="Lista creada:" tareas={this.state.toDoList} />
+                
+            </div>
+        );
+    }
+};
+
+
 class Hello extends React.Component {
     static defaultProps = {
         tareasHechas: ['Sin tareas...']
@@ -202,8 +247,10 @@ class Hello extends React.Component {
             Hoy es {this.props.date}
             <Lista id="tareasPendientes" titulo="Tareas pendientes:" tareas={this.props.tareas} />
             <Lista id="tareasHechos" titulo="Tareas hechas:" tareas={this.props.tareasHechas} />
-            <hr />
+            <hr />            
             <ControlledInput />
+            <hr />
+            <CreadorListas />            
         </div>
         );
     }

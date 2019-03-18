@@ -117,15 +117,15 @@ class ControlledInput extends React.Component {
     }
 
     render() {
-
-        const visor = this.state.showVisor ? <ControlledInputVisor texto={this.state.input} /> : null;
         return (
             <div>
                 <label style={{marginRight: 10}}>&iquest;Mostrar visor&#63;</label>
                 <input type="checkbox" checked={this.state.showVisor} onChange={this.handleChangeVisibility} />
                 <br />
                 <input value={this.state.input} onChange={this.handleChange} />
-                {visor}
+
+                {/*uso de && como condicional para pintado del control*/
+                this.state.showVisor && <ControlledInputVisor texto={this.state.input} />}
             </div>
         );
     }

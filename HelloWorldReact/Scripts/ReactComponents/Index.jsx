@@ -118,7 +118,7 @@ class ControlledInput extends React.Component {
         const visor = this.state.showVisor ? <ControlledInputVisor texto={this.state.input} /> : null;
         return (
             <div>
-                <label>&iquest;Mostrar visor&#63;</label>
+                <label style={{marginRight: 10}}>&iquest;Mostrar visor&#63;</label>
                 <input type="checkbox" checked={this.state.showVisor} onChange={this.handleChangeVisibility} />
                 <br />
                 <input value={this.state.input} onChange={this.handleChange} />
